@@ -1,0 +1,9 @@
+1. Ler várias vezes se for preciso o enunciado. Pegar referência guardar informação.
+2. Separar informação relevante por palavra chave.
+3. Pensar na problemática de como iniciar o dado recebido e solucionar o término (saída) com possível informação.
+4. Fazer exemplo de entrada e saída criando o cenário da lógica. 
+5. Não se preocupar com a quantidade da linha de código. Colocar a solução pensada para validar o resultado final. 
+6. Colocar na prática a solução pensada. 
+7. Criar nome de variável que faça sentido, para quando ocorrer eventual mudança de lógica.
+A organização nos ajuda a ter clareza e entendimento do desafio encontrado no código.
+
