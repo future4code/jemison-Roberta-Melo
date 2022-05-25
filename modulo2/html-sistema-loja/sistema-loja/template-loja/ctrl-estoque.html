@@ -4,66 +4,111 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/estilo.css" />
     <title>Controle de Estoque</title>
   </head>
   <body>
-    <header>
-      <p>Loja Acessórios</p>
-    </header>
+    <div class="main">
+      <header class="topo">
+        <!--o conteúdo ficará apenas no css-->
+      </header>
 
-    <nav>
-      <a href="index.html">Página Inicial</a>
-      <a href="ctrl-estoque.html">Controle de Estoque</a>
-      <a href="add-produto.html">Adicionar Produto</a>
-      <a href="funcionarios.html">Funcionários</a>
-    </nav>
+      <div>
+        <h1>Loja Acessórios</h1>
+      </div>
 
-    <h2>Controle de Estoque</h2>
+      <nav class="menu">
+        <a href="index.html">Página Inicial</a>
+        <a href="ctrl-estoque.html">Controle de Estoque</a>
+        <a href="add-produto.html">Adicionar Produto</a>
+        <a href="funcionarios.html">Funcionários</a>
+      </nav>
 
-    <table>
-      <tr>
-        <th>Foto</th>
-        <th>Descrição</th>
-        <th>Preço (R$)</th>
-        <th>Quantidade disponível</th>
-      </tr>
+      <h3 class="estoque">Controle de Estoque</h3>
+      <hr />
+      <table>
+        <tr>
+          <th>Foto</th>
+          <th>Descrição</th>
+          <th>Preço (R$)</th>
+          <th>Quantidade disponível</th>
+        </tr>
 
-      <tr>
-        <td><img src="./img/brinco.png" width="100px" height="100px" alt="Brinco acessórios" /></td>
-        <td>Pulseira</td>
-        <td>5,00</td>
-        <td>3</td>
-      </tr>
+        <tr>
+          <td>
+            <img
+              src="./img/brinco.png"
+              width="50px"
+              height="50px"
+              alt="É um brinco em formato de ícone vetorial no estilo de desenho"
+            />
+          </td>
+          <td>Pulseira</td>
+          <td>5,00</td>
+          <td>3</td>
+        </tr>
 
-      <tr>
-        <td><img src="./img/anel.png" width="100px" height="100px" alt="Anel acessórios" /></td>
-        <td>Anel</td>
-        <td>3,00</td>
-        <td>2</td>
-      </tr>
+        <tr>
+          <td>
+            <img
+              src="./img/anel.png"
+              width="50px"
+              height="50px"
+              alt="É um anel em formato de ícone vetorial no estilo de desenho"
+            />
+          </td>
+          <td>Anel</td>
+          <td>3,00</td>
+          <td>2</td>
+        </tr>
 
-      <tr>
-        <td><img src="./img/corrente.png" width="100px" height="100px" alt="Corrente acessórios" /></td>
-        <td>Corrente</td>
-        <td>10,00</td>
-        <td>2</td>
-      </tr>
+        <tr>
+          <td>
+            <img
+              src="./img/corrente.png"
+              width="50px"
+              height="50px"
+              alt="É uma corrente em formato de ícone vetorial no estilo de desenho"
+            />
+          </td>
+          <td>Corrente</td>
+          <td>10,00</td>
+          <td>2</td>
+        </tr>
 
-      <tr>
-        <td><img src="./img/pulseira.png" width="100px" height="100px" alt="Pulseira acessórios" /></td>
-        <td>Pulseira</td>
-        <td>3,00</td>
-        <td>2</td>
-      </tr>
+        <tr>
+          <td>
+            <img
+              src="./img/pulseira.png"
+              width="50px"
+              height="50px"
+              alt="É uma pulseira em formato de ícone vetorial no estilo de desenho"
+            />
+          </td>
+          <td>Pulseira</td>
+          <td>3,00</td>
+          <td>2</td>
+        </tr>
 
-      <!-- Crie mais uma linha desta tabela abaixo \/ -->
-      <tr>
-        <td><img src="./img/relogio.png" width="100px" height="100px" alt="Relogio acessórios" /></td>
-        <td>Relogio</td>
-        <td>50,00</td>
-        <td>1</td>
-      </tr>
-    </table>
-    <footer></footer>
+        <!-- Crie mais uma linha desta tabela abaixo \/ -->
+        <tr>
+          <td>
+            <img
+              src="./img/relogio.png"
+              width="50px"
+              height="50px"
+              alt="É um relógio em formato de ícone vetorial no estilo de desenho"
+            />
+          </td>
+          <td>Relogio</td>
+          <td>50,00</td>
+          <td>1</td>
+        </tr>
+      </table>
+      <hr />
+      <footer class="rodape">
+        <h2>lojaacessorios@gmail.com</h2>
+      </footer>
+    </div>
   </body>
 </html>
