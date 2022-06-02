@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/estilo.css" />
     <title>Loja Acessórios</title>
-</head>
-<body>
-    <header>
-        <h1>Bem-vindos a <em>Loja Acessórios</em>!</h1>
-        <p>Não importa quantos acessórios eu tenha... </p>
-        <p>Eu sempre vou querer mais.</p>
-    </header>
+  </head>
+  <body>
+    <div class="main">
+      <header class="topo">
+        <!--o conteúdo ficará apenas no css-->
+        <picture>
+          <img src="img/logo.png" alt="logo com um desenho de diamante e nome escrito acessórios" />
+        </picture>
+      </header>
 
-    <nav>
+      <div>
+        <h1>Bem-vindos a <em>Loja Acessórios</em>!</h1>
+        <p class="frase">Aqui também você encontra kit acessórios.</p>
+      </div>
+
+      <nav class="menu">
         <a href="index.html">Página Inicial</a>
         <a href="ctrl-estoque.html">Controle de Estoque</a>
         <a href="add-produto.html">Adicionar Produto</a>
         <a href="funcionarios.html">Funcionários</a>
-    </nav>
+      </nav>
 
-    <main>
-        <!-- ADICIONAR CONTEÚDO PRINCIPAL SOBRE SUA LOJINHA -->
-    </main>
+      <div>
+        <p class="itemA">
+          Não importa quantos acessórios eu tenha...<br />Eu sempre vou querer
+          mais.
+        </p>
+      </div>
 
-    
-    <footer>
-        <p>Siga-nos nas redes sociais!</p>
-       <a href="#"><img src="./img/pinterest.png" width="100px" height="100px"></a>
-       <a href="#"><img src="./img/instagram.png" width="100px" height="100px"></a>
-       <a href="#"><img src="./img/linkedin.png" width="100px" height="100px"></a>
-
-   <!-- <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
+      <div>
+        <p class="itemB">Siga-nos nas redes sociais!</p>
+        <div>
+          <a href="#"
+            ><img src="./img/pinterest.png" width="50px" height="50px"
+          /></a>
+          <a href="#"
+            ><img src="./img/instagram.png" width="50px" height="50px"
+          /></a>
+          <a href="#"
+            ><img src="./img/linkedin.png" width="50px" height="50px"
+          /></a>
+        </div>
+        <!-- <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
         <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
         <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>-->
-    </footer>
-</body>
+      </div>
+      <footer class="rodape">
+        <h2>lojaacessorios@gmail.com</h2>
+      </footer>
+    </div>
+  </body>
 </html>
