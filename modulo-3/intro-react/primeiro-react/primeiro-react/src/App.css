@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  align-items: center;
+  margin: 5vh;
+}
+
+div{
+  display: flex;
+  flex-direction: column;
+}
+.Logo-Labenu{
+  width: 30vw;
+  margin: 5vw;
+}
+a{
+  margin: 10px;
+}
