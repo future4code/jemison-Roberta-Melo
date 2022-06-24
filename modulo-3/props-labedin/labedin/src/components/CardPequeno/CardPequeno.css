@@ -1,0 +1,27 @@
+.peqcard-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    height: 60px;
+}
+
+.peqcard-container>img {
+    width: 35px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.peqcard-container {
+    margin-bottom: 15px;
+}
+
+.peqcard-container>div {
+    display: flex;
+    align-items: center;
+}
+
+h4 {
+    margin-right: 4px;
+}
