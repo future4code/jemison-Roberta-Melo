@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-
+import { Main, Image, Buttons } from "./styled";
 
 const Home = () => {
 
@@ -12,14 +12,10 @@ const Home = () => {
         axios
         .get(
             `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno/person`,
-            {
-                headers: {
-                    Authorization: ""
-                }
-            }
+            
             )
-        .then((res) => setProfile(res.data.profile))
-        .catch((err) => {console.log(err)})
+        .then((response) => setProfile(response.data.profile))
+        .catch((error) => {console.log(error)})
     }
 
     const DaMatch = () => {
@@ -32,14 +28,12 @@ const Home = () => {
         }
 
         const headers = {
-            headers : {
-                Authorization: ""
-            }
+           
         }
 
         axios
         .post(URL, body, headers) 
-        .then((res) => {setEscolherMatch(res.data.eMatch)})
+        .then((response) => {setEscolherMatch(response.data.isMatch)})
     }
 
     useEffect (() => {
@@ -55,7 +49,17 @@ const Home = () => {
     }
 
     return(
-       <></>
+       <Main> 
+      <h1>Astromatch</h1>
+      <hr/>
+            <Image src={profile.photo} alt={profile.name} />
+            <h3>{profile.name}, {profile.age}</h3>
+            <p>{profile.bio}</p>
+            <Buttons>
+                <button onClick={onClickMatchValue} value={false}>X</button>
+                <button onClick={onClickMatchValue} value={true} >♥</button>
+            </Buttons>
+	   </Main>
     )
 }
 
