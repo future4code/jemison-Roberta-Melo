@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
-
+import { Main } from "./styled";
 
 const TelaMatch = () => {
 
@@ -35,13 +34,26 @@ const TelaMatch = () => {
             .catch((error) => { console.log(error) })
     }
 
+    //console.log(match)
+
     useEffect(() => {
         getMatches()
-    }, [])
+    }, []);
 
     return (
-       <>
-       </>
+        <Main>
+            <h2>deram match</h2>
+            <hr />
+            {match.map((match) => {
+                return (
+                    <div>
+                        <p key={match.id}>{match.id}</p>
+                        <hr />
+                    </div>
+                )
+            })}
+            <button onClick={clearMatches}>Limpar matches</button>
+        </Main>
     )
 }
 

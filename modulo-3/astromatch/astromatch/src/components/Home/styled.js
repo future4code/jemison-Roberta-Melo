@@ -54,7 +54,6 @@ export const Buttons = styled.div`
         background-color: #dfcdb4;
         border-radius: 15px;
         border: none;
-        //cursor:pointer;
     }
 
     button:hover {
