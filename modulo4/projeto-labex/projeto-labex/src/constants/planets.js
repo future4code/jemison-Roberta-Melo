@@ -1,4 +1,4 @@
-export const Planets =[
+export const Planets = [
         'Mercúrio',
         'Vênus',
         'Terra',
@@ -7,5 +7,4 @@ export const Planets =[
         'Saturno',
         'Urano',
         'Netuno'
-    
 ]

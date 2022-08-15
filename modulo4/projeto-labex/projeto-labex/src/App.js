@@ -1,7 +1,5 @@
-//import './App.css';
 import React from 'react';
-import Router from '../pages/Routes/Router';
-
+import Router from './pages/Router';
 
 function App() {
 	return (
@@ -10,7 +8,6 @@ function App() {
 		</div>
 	);
 }
-
 
 export default App;
 

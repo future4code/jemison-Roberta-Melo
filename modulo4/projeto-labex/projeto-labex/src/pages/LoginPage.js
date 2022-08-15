@@ -1,30 +1,47 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { BASE_URL } from "../constants/constants";
 import styled from 'styled-components'
 
 
 const GlobalStyles = styled.div`
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    height: 100vh;
     display:grid;
+    height: 100vh;
+
+    button{
+        display: flex;
+        padding: 10px;
+        margin: 10px;
+        font-family: Arial,sans-serif;
+        background-color: #333;
+        color: white;
+        border-radius: 5px;
+
+:hover {
+        cursor: pointer;
+        background-color: #ccc;
+        color: #000;
+    }
+  }
     
 `
 const ButtonHome = styled.div`
-display: flex;
-justify-content: flex-end;
-margin-top:55px ;
-margin-right: 55px;
-height: 45px;
-font-family: Arial;
+    display: flex;
+    justify-content: flex-end;
+    margin-top:40px ;
+    margin-right: 55px;
+    height: 60px;
+    font-family: Arial, sans-serif;
 `
 const Login = styled.div`
-display: flex;
-justify-content: center;
-height: 300px;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+
+h2{
+   padding: 5px;
+  }
 
 input {
       display: flex;
@@ -46,8 +63,9 @@ button{
 
 :hover {
         cursor: pointer;
-        background-color: #8a6a6b;
+        background-color: #ccc;
         color: #000;
+        border: none;
     }
   }
 `
@@ -77,14 +95,14 @@ function LoginPage() {
       email: email,
       password: password
     }
-    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/roberta-vieira-jemison/login", body)
+    axios.post(`${BASE_URL}/login`, body)
       .then((response) => {
         alert("Login efetuado com sucesso!")
         localStorage.setItem("token", response.data.token)
         goAdminHomePage()
       })
       .catch((error) => {
-        alert("Erro, insira login e senha!")
+        alert("Erro, insira login e senha novamente!")
         console.log(error)
       })
   }
@@ -98,30 +116,28 @@ function LoginPage() {
         <div>
           <h2>LOGIN</h2>
           <form>
-          
-            <input 
-                placeholder={"email"}
-                required
-                type={"email"}
-                onChange={onChangeEmail}
-                value={email}
-               />
-          
+            <input
+              placeholder={"email"}
+              required
+              type={"email"}
+              onChange={onChangeEmail}
+              value={email}
+            />
+
             <input
               placeholder={"senha"}
               required
               type={"password"}
               onChange={onChangePassword}
               value={password}
-               />
-         </form>
-    
+            />
+          </form>
+
           <button onClick={login}>login</button>
-      
         </div>
       </Login>
     </GlobalStyles>
-  )
+  );
 }
 
 export default LoginPage;

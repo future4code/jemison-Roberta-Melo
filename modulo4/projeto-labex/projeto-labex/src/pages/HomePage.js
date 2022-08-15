@@ -7,11 +7,8 @@ const GlobalStyles = styled.div`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    text-decoration: none;
-    height: 100vh;
     display: flex;
     flex-direction: column;  
-    color: white;
     gap: 80px;   
 `
 const ContainerHome = styled.div`
@@ -21,8 +18,6 @@ const ContainerHome = styled.div`
     align-items: center;
 `
 const Title = styled.div`
-    display: flex;
-    flex-direction:column;
   
     h1{
         align-items: center;
@@ -31,21 +26,16 @@ const Title = styled.div`
         color: #000;  
     } 
 `
+
 const Header = styled.div`
- height: 100px;
-
-    h1{
-        font-size: 30px;
-        font-family: Arial, sans-serif;
-        margin-left: 55px ;
-}
+    height: 100px;
 `
-const Button = styled.div`
-display: flex;
-flex-direction:row;
-gap: 30px;
-justify-content:center;
 
+const Button = styled.div`
+    display: flex;
+    justify-content:center;
+    gap: 30px;
+    
     button{
         padding: 10px;
         margin-left: 10px;
@@ -57,10 +47,10 @@ justify-content:center;
         border: none;
         font-weight: bold;
 
-        :hover {
-            cursor: pointer;
-            background-color: #8a6a6b;
-            color: #000;
+    :hover {
+        cursor: pointer;
+        background-color: #ccc;
+        color: #000;
     }
 }
 `
@@ -70,23 +60,25 @@ function HomePage() {
     const goToListTrips = () => {
         navigate("/trips/list")
     }
-    const irLoginPage = () => {
+    const goLoginPage = () => {
         navigate("/login")
     }
     return (
         <GlobalStyles>
-            <Header></Header>
+            <Header>   </Header>
+
             <ContainerHome>
+
                 <Title>
                     <h1>Bem vindo a viagem</h1>
                 </Title>
             </ContainerHome>
             <Button>
-                <button onClick={irLoginPage}>Área Admin</button>
+                <button onClick={goLoginPage}>Área Admin</button>
                 <button onClick={goToListTrips}>Ver viagens</button>
             </Button>
         </GlobalStyles>
-    )
+    );
 }
 
 export default HomePage;

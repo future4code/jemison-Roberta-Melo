@@ -1,25 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-//import { Card  } from "./styled";
-
 import styled from 'styled-components'
+
+const ButtonHome = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    margin-top:40px;
+    margin-right: 2px;
+    height: 60px;
+    font-family: Arial, sans-serif;
+
+button{
+        display: flex;
+        padding: 10px;
+        margin: 10px;
+        font-family: Arial, sans-serif;
+        background-color: #333;
+        color: white;
+        border-radius: 5px;
+
+:hover {
+        cursor: pointer;
+        background-color: #ccc;
+        color: #000;
+       
+    }
+  }
+`
+
+const Title = styled.div`
+  
+    h1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+        color: #000;  
+    } 
+`
 
 const Card = styled.div`
     display: grid;
     align-items: center;
-    margin: 100px;
+    margin: 10px;
     width: 220px;
     height: 210px;
     border-radius: 4px;
     background-color: #ccc;
-    padding: 10px;
+    padding: 20px;
     font-size: 70%;
-   box-shadow: 6px 8px 8px 0px #000;
+    box-shadow: 6px 8px 8px 0px #000;
 `
 
 function ListTripsPage() {
-    
+
     const navigate = useNavigate()
     const voltaHomePage = () => {
         navigate("/")
@@ -43,7 +78,7 @@ function ListTripsPage() {
 
     const listTrips = trips.map((list) => {
         return (
-            <Card>
+            <Card className="Card">
                 <p>Nome: {list.name}</p>
                 <p>Descrição:{list.description}</p>
                 <p>Planeta:{list.planet}</p>
@@ -55,18 +90,15 @@ function ListTripsPage() {
     return (
         <div className="GlobalStyles">
             <div>
-                <div className="ButtonHome">
+                <ButtonHome className="ButtonHome">
                     <button onClick={voltaHomePage}>Home</button>
-                </div>
+                </ButtonHome>
                 <div>
-                    <div className="Title">
-                        <h1>Embarque nas nossas Viagens</h1>
-                    </div>
+                    <Title className="Title">
+                        <h1>Embarque na nossa viagem</h1>
+                   </Title>
                 </div>
-                <div className="ButtonCreate">
-                    <button onClick={ApplicationFormPage}>Inscrever-se</button>
-
-                </div>
+             
                 <div className="Card">
                     <div class="card2">
                         <div class="card__content">
@@ -74,10 +106,13 @@ function ListTripsPage() {
                         </div>
                     </div>
                 </div>
+                <ButtonHome className="Button">
+                    <button onClick={ApplicationFormPage}>Inscreva-se</button>
+                </ButtonHome>
             </div>
         </div>
 
-    )
+    );
 }
 
 export default ListTripsPage;
