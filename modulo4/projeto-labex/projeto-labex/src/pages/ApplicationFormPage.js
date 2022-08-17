@@ -13,7 +13,7 @@ const GlobalStyles = styled.div`
 
     select{
       display: flex;
-      width: 41.5vw;
+      width: 41.6vw;
       margin: 5px;
       padding: 10px;
       border: 1px solid black;
@@ -34,7 +34,7 @@ button{
         display: flex;
         padding: 10px;
         margin: 10px;
-        font-family: Arial,sans-serif;
+        font-family: Arial, sans-serif;
         background-color: #333;
         color: white;
         border-radius: 5px;
@@ -42,15 +42,14 @@ button{
 :hover {
         cursor: pointer;
         background-color: #ccc;
-        color: #000;
-        
+        color: #000; 
     }
   }
 `
 const ButtonHome = styled.div`
         display: grid;
         justify-content: flex-start;
-        margin-top:40px;
+        margin-top: 40px;
         margin-right: 2px;
         height: 60px;
         font-family: Arial, sans-serif;
@@ -58,10 +57,10 @@ const ButtonHome = styled.div`
 
 function ApplicationFormPage() {
     const navigate = useNavigate()
-    const voltaHomePage = () => {
+    const goHomePage = () => {
         navigate("/")
     }
-    const { form, onChange, cleanFields } = useForm({
+    const { form, onChange, clean } = useForm({
         name: "",
         age: "",
         applicationText: "",
@@ -72,7 +71,7 @@ function ApplicationFormPage() {
     const cadastrar = (event) => {
         event.preventDefault()
         applyToTrips(form.idViagem)
-        cleanFields()
+        clean()
     }
     const [trips, setTrips] = useState([])
 
@@ -88,7 +87,7 @@ function ApplicationFormPage() {
             .then((response) => {
                 alert("Cadastrado com sucesso!")
             }).catch((error) => {
-                alert("Ocorreu um erro, por favor tente novamente")
+                alert("Ocorreu um erro, por favor tente novamente!")
             })
     }
     useEffect(() => {
@@ -111,7 +110,7 @@ function ApplicationFormPage() {
         <GlobalStyles>
             <div>
                 <ButtonHome className="Button" >
-                    <button onClick={voltaHomePage}>Home</button>
+                    <button onClick={goHomePage}>Home</button>
                 </ButtonHome>
                 <form onSubmit={cadastrar}>
                     <select
@@ -126,24 +125,28 @@ function ApplicationFormPage() {
                         value={form.name}
                         onChange={onChange}
                         placeholder="Nome"
+                        required
                     />
                     <input
                         name={"age"}
                         value={form.age}
                         onChange={onChange}
                         placeholder="Idade"
+                        required
                     />
                     <input
                         name={"applicationText"}
                         value={form.applicationText}
                         onChange={onChange}
                         placeholder="Texto para candidatura"
+                        required
                     />
                     <input
                         name={"profession"}
                         value={form.profession}
                         onChange={onChange}
                         placeholder="Profissão"
+                        required
                     />
                     <select
                         value={form.country}

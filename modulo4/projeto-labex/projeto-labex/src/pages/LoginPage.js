@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL } from "../constants/constants";
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 
 const GlobalStyles = styled.div`
-    display:grid;
+    display: grid;
     height: 100vh;
 
     button{
@@ -23,8 +23,7 @@ const GlobalStyles = styled.div`
         background-color: #ccc;
         color: #000;
     }
-  }
-    
+  } 
 `
 const ButtonHome = styled.div`
     display: flex;
@@ -73,7 +72,7 @@ button{
 function LoginPage() {
   const navigate = useNavigate()
 
-  const voltaHomePage = () => {
+  const goHomePage = () => {
     navigate("/")
   }
   const goAdminHomePage = () => {
@@ -81,15 +80,15 @@ function LoginPage() {
   }
 
   const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const onChangeEmail = (event) => {
     setEmail(event.target.value)
   }
-  const [password, setPassword] = useState("")
-
   const onChangePassword = (event) => {
     setPassword(event.target.value)
   }
+  
   const login = () => {
     const body = {
       email: email,
@@ -110,13 +109,15 @@ function LoginPage() {
   return (
     <GlobalStyles>
       <ButtonHome className="Button">
-        <button onClick={voltaHomePage}>Home</button>
+        <button onClick={goHomePage}>Home</button>
       </ButtonHome>
       <Login>
         <div>
           <h2>LOGIN</h2>
-          <form>
+          <form onSubmit={login}>
             <input
+              id="email"
+              name="email"
               placeholder={"email"}
               required
               type={"email"}
@@ -125,6 +126,8 @@ function LoginPage() {
             />
 
             <input
+              id="password"
+              name="password"
               placeholder={"senha"}
               required
               type={"password"}
@@ -132,7 +135,6 @@ function LoginPage() {
               value={password}
             />
           </form>
-
           <button onClick={login}>login</button>
         </div>
       </Login>

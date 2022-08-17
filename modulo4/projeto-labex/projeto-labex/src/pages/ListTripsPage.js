@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const ButtonHome = styled.div`
     display: flex;
     justify-content: flex-end;
-    margin-top:40px;
+    margin-top: 40px;
     margin-right: 2px;
     height: 60px;
     font-family: Arial, sans-serif;
@@ -24,7 +24,6 @@ button{
         cursor: pointer;
         background-color: #ccc;
         color: #000;
-       
     }
   }
 `
@@ -56,7 +55,7 @@ const Card = styled.div`
 function ListTripsPage() {
 
     const navigate = useNavigate()
-    const voltaHomePage = () => {
+    const goHomePage = () => {
         navigate("/")
     }
     const ApplicationFormPage = () => {
@@ -79,11 +78,11 @@ function ListTripsPage() {
     const listTrips = trips.map((list) => {
         return (
             <Card className="Card">
-                <p>Nome: {list.name}</p>
-                <p>Descrição:{list.description}</p>
-                <p>Planeta:{list.planet}</p>
-                <p>Duração:{list.durationInDays}</p>
-                <p>Data:{list.date}</p>
+                <p><strong>Nome:</strong> {list.name}</p>
+                <p><strong>Planeta:</strong> {list.planet}</p>              
+                <p><strong>Data:</strong> {list.date}</p>
+                <p><strong>Descrição:</strong> {list.description}</p>
+                <p><strong>Duração:</strong> {list.durationInDays}</p>
             </Card>
         )
     })
@@ -91,27 +90,24 @@ function ListTripsPage() {
         <div className="GlobalStyles">
             <div>
                 <ButtonHome className="ButtonHome">
-                    <button onClick={voltaHomePage}>Home</button>
+                    <button onClick={goHomePage}>Home</button>
                 </ButtonHome>
                 <div>
                     <Title className="Title">
                         <h1>Embarque na nossa viagem</h1>
-                   </Title>
+                    </Title>
                 </div>
              
                 <div className="Card">
-                    <div class="card2">
                         <div class="card__content">
                             {listTrips}
                         </div>
-                    </div>
                 </div>
                 <ButtonHome className="Button">
                     <button onClick={ApplicationFormPage}>Inscreva-se</button>
                 </ButtonHome>
             </div>
         </div>
-
     );
 }
 

@@ -1,7 +1,7 @@
 # 👨‍🚀 LabeX 
-#### Gerenciamento e candidaturas de viagens espaciais.
+#### Gerenciamento e candidatura de viagem espacial.
 
-###### https://economic-screw.surge.sh/
+###### http://short-pull.surge.sh/
 ### Tecnologias utilizadas
 
 - React
@@ -12,7 +12,7 @@
 #### ✅ O que funciona
  - Requisições API LabeX
  
- ❌ O que não funciona
+#### ❌ O que não funciona
  - A funcionalidade da área administrativa
 
 ### Layout
@@ -20,3 +20,6 @@
 ![](img2.png)
 ![](img3.png)
 ![](img4.png)
+
+###### E-mail: roberta.vieirademelo@yahoo.com.br
+###### Senha: 456357

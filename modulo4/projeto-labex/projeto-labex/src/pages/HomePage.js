@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 
 const GlobalStyles = styled.div`
@@ -65,10 +65,8 @@ function HomePage() {
     }
     return (
         <GlobalStyles>
-            <Header>   </Header>
-
+            <Header></Header>
             <ContainerHome>
-
                 <Title>
                     <h1>Bem vindo a viagem</h1>
                 </Title>
