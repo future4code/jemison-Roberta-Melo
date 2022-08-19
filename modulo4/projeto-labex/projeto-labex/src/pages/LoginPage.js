@@ -1,7 +1,7 @@
+import '../App.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { BASE_URL } from "../constants/constants";
 import styled from 'styled-components';
 
 
@@ -76,7 +76,7 @@ function LoginPage() {
     navigate("/")
   }
   const goAdminHomePage = () => {
-    navigate("/admin/trips/list")
+    navigate("/trips/list")
   }
 
   const [email, setEmail] = useState("")
@@ -94,7 +94,7 @@ function LoginPage() {
       email: email,
       password: password
     }
-    axios.post(`${BASE_URL}/login`, body)
+    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/roberta-vieira-jemison/login", body)
       .then((response) => {
         alert("Login efetuado com sucesso!")
         localStorage.setItem("token", response.data.token)
@@ -118,9 +118,9 @@ function LoginPage() {
             <input
               id="email"
               name="email"
-              placeholder={"email"}
+              placeholder= "email"
               required
-              type={"email"}
+              type= "email"
               onChange={onChangeEmail}
               value={email}
             />
@@ -128,9 +128,9 @@ function LoginPage() {
             <input
               id="password"
               name="password"
-              placeholder={"senha"}
+              placeholder= "senha"
               required
-              type={"password"}
+              type= "password"
               onChange={onChangePassword}
               value={password}
             />

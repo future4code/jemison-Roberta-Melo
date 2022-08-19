@@ -1,7 +1,7 @@
 # 👨‍🚀 LabeX 
 #### Gerenciamento e candidatura de viagem espacial.
 
-###### http://short-pull.surge.sh/
+###### https://responsible-muscle.surge.sh/
 ### Tecnologias utilizadas
 
 - React
@@ -13,7 +13,7 @@
  - Requisições API LabeX
  
 #### ❌ O que não funciona
- - A funcionalidade da área administrativa
+ - 
 
 ### Layout
 ![](img1.png)

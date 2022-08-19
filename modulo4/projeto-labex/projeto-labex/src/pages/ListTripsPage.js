@@ -52,6 +52,16 @@ const Card = styled.div`
     box-shadow: 6px 8px 8px 0px #000;
 `
 
+const Box = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    margin: 15px;
+`
+
+
 function ListTripsPage() {
 
     const navigate = useNavigate()
@@ -68,7 +78,7 @@ function ListTripsPage() {
                 setTrips(response.data.trips)
             })
             .catch(() => {
-                alert("Algo deu errado!!!")
+                alert("Algo deu errado!")
             })
     }
     useEffect(() => {
@@ -87,7 +97,7 @@ function ListTripsPage() {
         )
     })
     return (
-        <div className="GlobalStyles">
+        <div className="">
             <div>
                 <ButtonHome className="ButtonHome">
                     <button onClick={goHomePage}>Home</button>
@@ -99,9 +109,9 @@ function ListTripsPage() {
                 </div>
              
                 <div className="Card">
-                        <div class="card__content">
+                        <Box  className="Box">
                             {listTrips}
-                        </div>
+                        </Box>
                 </div>
                 <ButtonHome className="Button">
                     <button onClick={ApplicationFormPage}>Inscreva-se</button>

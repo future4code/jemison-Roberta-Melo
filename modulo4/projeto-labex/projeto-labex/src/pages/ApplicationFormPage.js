@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import useForm from "../Hooks/useForm";
 import { Countries } from "../constants/countries";
-import { BASE_URL } from "../constants/constants";
 import styled from 'styled-components';
 
 const GlobalStyles = styled.div`
@@ -83,7 +82,7 @@ function ApplicationFormPage() {
             "profession": form.profession,
             "country": form.country,
         }
-        axios.post(`${BASE_URL}trips/:id/apply`, body)
+        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/roberta-vieira-jemison/trips/:id/apply", body)
             .then((response) => {
                 alert("Cadastrado com sucesso!")
             }).catch((error) => {
@@ -91,7 +90,14 @@ function ApplicationFormPage() {
             })
     }
     useEffect(() => {
-
+        const token = localStorage.getItem("token")
+        axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labeX/roberta-vieira-jemison/trips")
+            .then((response) => {
+                setTrips(response.data.trips)
+            })
+            .catch((error) => {
+                alert("Ocorreu um erro, por favor tente novamente!")
+            })
     }, [])
 
     const getTrips = trips.map((list) => {
@@ -109,7 +115,7 @@ function ApplicationFormPage() {
     return (
         <GlobalStyles>
             <div>
-                <ButtonHome className="Button" >
+                <ButtonHome className="Button">
                     <button onClick={goHomePage}>Home</button>
                 </ButtonHome>
                 <form onSubmit={cadastrar}>
@@ -153,7 +159,7 @@ function ApplicationFormPage() {
                         name={"country"}
                         onChange={onChange}
                     >
-                        <option value="" disabled>Escolha o seu país</option>
+                    <option value="" disabled>Escolha o seu país</option>
                         {getCountries}
                     </select>
                     <button>Enviar</button>
