@@ -19,7 +19,6 @@ const GlobalStyles = styled.div`
       border-radius: 5px;
       font-size: 15px;
     }
-
     input {
       display: flex;
       width: 40vw;
@@ -31,16 +30,17 @@ const GlobalStyles = styled.div`
     }
     button{
         display: flex;
-        padding: 5px;
+        padding: 7px;
         margin: 5px;
         font-family: Arial, sans-serif;
-        color: #000;
+        color: #fff;
         border-radius: 5px;
+        background-color: #333;
 
-:hover {
+    :hover {
         cursor: pointer;
-        background-color: #666;
-        color: #fff; 
+        background-color: #ccc;
+        color: #000; 
     }
   }
 `
@@ -49,17 +49,16 @@ const ButtonHome = styled.div`
         justify-content: flex-start;
         margin-top: 40px;
         margin-right: 2px;
-        height: 60px;
+        height: 45px;
         font-family: Arial, sans-serif;
 `
 const ButtonViajar = styled.div`
         display: grid;
         justify-content: flex-end;
-        margin-top: -37px;
+        margin-top: -44px;
         margin-left: 10px;
         height: 40px;
-        font-family: Arial, sans-serif;
-     
+        font-family: Arial, sans-serif;    
 `
 
 function ApplicationFormPage() {
@@ -113,7 +112,6 @@ function ApplicationFormPage() {
     }, [])
 
     const getTrips = trips.map((list) => {
-
         return (
             <option key={list.id} value={list.id}>{list.name}</option>
         )
@@ -127,10 +125,8 @@ function ApplicationFormPage() {
     return (
         <GlobalStyles>
             <div>
-                <ButtonHome className="Button">
-                    <button onClick={goHomePage}>
-                    <img src="https://cdn.icon-icons.com/icons2/1359/PNG/512/astronauthelmet_88899.png" width="40" height="35" alt="capacete astronauta" />
-                    </button>
+                <ButtonHome>
+                    <button onClick={goHomePage}>Home</button>
                 </ButtonHome>
 
                 <form onSubmit={cadastrar}>
@@ -180,9 +176,7 @@ function ApplicationFormPage() {
                     <button>Enviar</button>
                 </form>
                 <ButtonViajar className="Button">
-                     <button onClick={goCreateTripPage}>
-                     <img src="https://cdn.icon-icons.com/icons2/1388/PNG/512/spaceshuttlelaunch_96074.png" width="40" height="35" alt="ícone de um foguete"/>
-                     </button>
+                     <button onClick={goCreateTripPage}>Viajar</button>
                 </ButtonViajar>
             </div>
         </GlobalStyles>

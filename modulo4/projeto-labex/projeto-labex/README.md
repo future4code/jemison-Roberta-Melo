@@ -1,7 +1,7 @@
 # 👨‍🚀 LabeX 
 #### Gerenciamento e candidatura de viagem espacial.
 
-###### https://sticky-field.surge.sh/
+###### https://upset-cobweb.surge.sh/
 ### Tecnologias utilizadas
 
 - React

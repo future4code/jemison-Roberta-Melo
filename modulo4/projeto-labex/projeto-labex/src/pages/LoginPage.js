@@ -1,3 +1,4 @@
+import '../App.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -26,45 +27,59 @@ const GlobalStyles = styled.div`
 const ButtonHome = styled.div`
     display: flex;
     justify-content: flex-end;
-    margin-top:40px ;
+    margin-top: 40px ;
     margin-right: 55px;
-    height: 70px;
+    height: 60px;
     font-family: Arial, sans-serif;
+
+    button{
+        display: flex;
+        padding: 10px;
+        margin: 10px;
+        font-family: Arial,sans-serif;
+        background-color: #333;
+        color: #fff;
+        
+    :hover {
+        cursor: pointer;
+        background-color: #ccc;
+        color: #000;
+    }
+  }
 `
 const Login = styled.div`
     display: flex;
     justify-content: center;
     height: 300px;
 
-h2{
-   padding: 5px;
-  }
+      h2{
+        padding: 5px;
+        }
+      input {
+            display: flex;
+            width: 30vw;
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 15px;
+          }
+      button{
+              display: flex;
+              padding: 10px;
+              margin: 10px;
+              font-family: Arial,sans-serif;
+              background-color: #333;
+              color: white;
+              border-radius: 5px;
 
-input {
-      display: flex;
-      width: 30vw;
-      margin: 5px;
-      padding: 10px;
-      border: 1px solid black;
-      border-radius: 5px;
-      font-size: 15px;
-    }
-button{
-        display: flex;
-        padding: 10px;
-        margin: 10px;
-        font-family: Arial,sans-serif;
-        background-color: #333;
-        color: white;
-        border-radius: 5px;
-
-:hover {
-        cursor: pointer;
-        background-color: #ccc;
-        color: #000;
-        border: none;
-    }
-  }
+      :hover {
+              cursor: pointer;
+              background-color: #ccc;
+              color: #000;
+              border: none;
+          }
+        }
 `
 
 function LoginPage() {
@@ -107,9 +122,7 @@ function LoginPage() {
   return (
     <GlobalStyles>
       <ButtonHome className="Button">
-        <button onClick={goHomePage}>
-        <img src="https://cdn.icon-icons.com/icons2/1359/PNG/512/astronauthelmet_88899.png" width="40" height="35" alt="capacete astronauta" />
-        </button>
+        <button onClick={goHomePage}>Home</button>
       </ButtonHome>
       <Login>
         <div>
@@ -124,7 +137,6 @@ function LoginPage() {
               onChange={onChangeEmail}
               value={email}
             />
-
             <input
               id="password"
               name="password"

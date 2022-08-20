@@ -22,18 +22,28 @@ const Header = styled.div`
         padding: 10px;
         margin: 10px;
         font-family: Arial, sans-serif;
-        color: white;
+        background-color: #333;
+        color: #fff;
         border-radius: 5px;
-        height: 50px;
+        height: 40px;
+
+        :hover {
+        cursor: pointer;
+        background-color: #ccc;
+        color: #000; 
     }
+ }
 `
 const ButtonCreate = styled.div`
    display: grid;
    justify-content:center;
-   padding: 5px;
-   margin: 10px;
+   padding: 3px;
+   margin: 2px;
    height: 40px;
    font-family: Arial, sans-serif;
+   justify-content: flex-end;
+   margin-top: -10px;
+      
 
     button{
         display: flex;
@@ -41,9 +51,15 @@ const ButtonCreate = styled.div`
         margin: 10px;
         font-family: Arial, sans-serif;
         background-color: #333;
-        color: white;
+        color: #fff;
         border-radius: 5px;
-        height: 37px;
+        height: 38px;
+      
+        :hover {
+        cursor: pointer;
+        background-color: #ccc;
+        color: #000; 
+    }
 }
 `
 const Input = styled.div`
@@ -53,12 +69,32 @@ const Input = styled.div`
     margin: 10px;
     padding: 10px;
     font-size: 15px;
+
+
+    select{
+      display: flex;
+      width: 41.6vw;
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+
+    input {
+      display: flex;
+      width: 40vw;
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 5px;
+      font-size: 15px;
+    }
 `
 const Title = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-
 `
 
 function CreateTripPage() {
@@ -97,7 +133,6 @@ function CreateTripPage() {
             }).catch((error) => {
                 alert("Ocorreu um erro, tente novamente!")
             })
-
     }
     const getPlanet = Planets.map((planets) => {
         return <option key={planets} value={planets}>{planets}</option>
@@ -106,9 +141,7 @@ function CreateTripPage() {
     return (
         <GlobalStyles>
             <Header>
-                <button onClick={goHomePage}>
-                    <img src="https://cdn.icon-icons.com/icons2/1359/PNG/512/astronauthelmet_88899.png" width="40" height="35" alt="capacete astronauta" />
-                </button>
+                <button onClick={goHomePage}>Home</button>
             </Header>
 
             <form onSubmit={create}>

@@ -11,25 +11,24 @@ const ButtonHome = styled.div`
     height: 60px;
     font-family: Arial, sans-serif;
 
-button{
+    button{
         display: flex;
         padding: 10px;
         margin: 10px;
         font-family: Arial, sans-serif;
-        height: 50px;
+        height: 40px;
         color: white;
         border-radius: 5px;
+        background-color: #333;
 
-:hover {
+    :hover {
         cursor: pointer;
         background-color: #ccc;
         color: #000;
     }
   }
 `
-
 const Title = styled.div`
-  
     h1{
         display: flex;
         align-items: center;
@@ -38,7 +37,6 @@ const Title = styled.div`
         color: #000;  
     } 
 `
-
 const Card = styled.div`
     display: grid;
     align-items: center;
@@ -51,7 +49,6 @@ const Card = styled.div`
     font-size: 70%;
     box-shadow: 6px 8px 8px 0px #000;
 `
-
 const Box = styled.div`
     display: flex;
     flex-direction: column;
@@ -68,7 +65,6 @@ const ButtonIns  = styled.div`
     height: 50px;
     font-family: Arial, sans-serif;
 
-    
     button{
         display: flex;
         padding: 10px;
@@ -88,7 +84,6 @@ const ButtonIns  = styled.div`
  `
 
 function ListTripsPage() {
-
     const navigate = useNavigate()
     const goHomePage = () => {
         navigate("/")
@@ -112,7 +107,7 @@ function ListTripsPage() {
 
     const listTrips = trips.map((list) => {
         return (
-            <Card className="Card">
+            <Card>
                 <p><strong>Nome:</strong> {list.name}</p>
                 <p><strong>Planeta:</strong> {list.planet}</p>              
                 <p><strong>Data:</strong> {list.date}</p>
@@ -125,16 +120,13 @@ function ListTripsPage() {
         <div className="">
             <div>
                 <ButtonHome className="ButtonHome">
-                    <button onClick={goHomePage}>
-                    <img src="https://cdn.icon-icons.com/icons2/1359/PNG/512/astronauthelmet_88899.png" width="40" height="35" alt="capacete astronauta" />
-                    </button>
+                    <button onClick={goHomePage}>Home</button>
                 </ButtonHome>
                 <div>
                     <Title className="Title">
                         <h1>Embarque na nossa viagem!</h1>
                     </Title>
                 </div>
-             
                 <div className="Card">
                         <Box  className="Box">
                             {listTrips}
