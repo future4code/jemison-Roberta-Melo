@@ -49,7 +49,7 @@ const Button = styled.div`
 
     :hover {
         cursor: pointer;
-        background-color: #ccc;
+        background-color: #eee8e8;
         color: #000;
     }
 }
@@ -65,7 +65,9 @@ function HomePage() {
     }
     return (
         <GlobalStyles>
-            <Header></Header>
+            <Header>
+                <img src="https://cdn.icon-icons.com/icons2/1532/PNG/512/3285299-orbit-orbital-satellite-shuttle-space-spaceship_106796.png" width="700" height="700" alt="ícone de um foguete"/>
+            </Header>
             <ContainerHome>
                 <Title>
                     <h1>Bem vindo a viagem</h1>

@@ -16,7 +16,7 @@ button{
         padding: 10px;
         margin: 10px;
         font-family: Arial, sans-serif;
-        background-color: #333;
+        height: 50px;
         color: white;
         border-radius: 5px;
 
@@ -46,7 +46,7 @@ const Card = styled.div`
     width: 220px;
     height: 210px;
     border-radius: 4px;
-    background-color: #ccc;
+    background-color: #0ec0c1;
     padding: 20px;
     font-size: 70%;
     box-shadow: 6px 8px 8px 0px #000;
@@ -60,7 +60,32 @@ const Box = styled.div`
     padding: 30px;
     margin: 15px;
 `
+const ButtonIns  = styled.div`
+   display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    margin-right: 2px;
+    height: 50px;
+    font-family: Arial, sans-serif;
 
+    
+    button{
+        display: flex;
+        padding: 10px;
+        margin: 10px;
+        font-family: Arial, sans-serif;
+        height: 40px;
+        color: white;
+        border-radius: 5px;
+        background-color: #333;
+
+    :hover {
+        cursor: pointer;
+        background-color: #ccc;
+        color: #000;
+    }
+  }
+ `
 
 function ListTripsPage() {
 
@@ -100,11 +125,13 @@ function ListTripsPage() {
         <div className="">
             <div>
                 <ButtonHome className="ButtonHome">
-                    <button onClick={goHomePage}>Home</button>
+                    <button onClick={goHomePage}>
+                    <img src="https://cdn.icon-icons.com/icons2/1359/PNG/512/astronauthelmet_88899.png" width="40" height="35" alt="capacete astronauta" />
+                    </button>
                 </ButtonHome>
                 <div>
                     <Title className="Title">
-                        <h1>Embarque na nossa viagem</h1>
+                        <h1>Embarque na nossa viagem!</h1>
                     </Title>
                 </div>
              
@@ -113,9 +140,9 @@ function ListTripsPage() {
                             {listTrips}
                         </Box>
                 </div>
-                <ButtonHome className="Button">
+                <ButtonIns className="Button">
                     <button onClick={ApplicationFormPage}>Inscreva-se</button>
-                </ButtonHome>
+                </ButtonIns>
             </div>
         </div>
     );

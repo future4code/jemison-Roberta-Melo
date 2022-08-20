@@ -29,19 +29,18 @@ const GlobalStyles = styled.div`
       border-radius: 5px;
       font-size: 15px;
     }
-button{
+    button{
         display: flex;
-        padding: 10px;
-        margin: 10px;
+        padding: 5px;
+        margin: 5px;
         font-family: Arial, sans-serif;
-        background-color: #333;
-        color: white;
+        color: #000;
         border-radius: 5px;
 
 :hover {
         cursor: pointer;
-        background-color: #ccc;
-        color: #000; 
+        background-color: #666;
+        color: #fff; 
     }
   }
 `
@@ -53,12 +52,25 @@ const ButtonHome = styled.div`
         height: 60px;
         font-family: Arial, sans-serif;
 `
+const ButtonViajar = styled.div`
+        display: grid;
+        justify-content: flex-end;
+        margin-top: -37px;
+        margin-left: 10px;
+        height: 40px;
+        font-family: Arial, sans-serif;
+     
+`
 
 function ApplicationFormPage() {
     const navigate = useNavigate()
     const goHomePage = () => {
         navigate("/")
     }
+
+    const goCreateTripPage = () => {
+        navigate("/admin/trip/create")
+      }
     const { form, onChange, clean } = useForm({
         name: "",
         age: "",
@@ -116,8 +128,11 @@ function ApplicationFormPage() {
         <GlobalStyles>
             <div>
                 <ButtonHome className="Button">
-                    <button onClick={goHomePage}>Home</button>
+                    <button onClick={goHomePage}>
+                    <img src="https://cdn.icon-icons.com/icons2/1359/PNG/512/astronauthelmet_88899.png" width="40" height="35" alt="capacete astronauta" />
+                    </button>
                 </ButtonHome>
+
                 <form onSubmit={cadastrar}>
                     <select
                         value={form.idViagem}
@@ -164,8 +179,14 @@ function ApplicationFormPage() {
                     </select>
                     <button>Enviar</button>
                 </form>
+                <ButtonViajar className="Button">
+                     <button onClick={goCreateTripPage}>
+                     <img src="https://cdn.icon-icons.com/icons2/1388/PNG/512/spaceshuttlelaunch_96074.png" width="40" height="35" alt="ícone de um foguete"/>
+                     </button>
+                </ButtonViajar>
             </div>
         </GlobalStyles>
+        
     );
 }
 

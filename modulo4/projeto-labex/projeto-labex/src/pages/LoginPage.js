@@ -1,4 +1,3 @@
-import '../App.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -14,7 +13,6 @@ const GlobalStyles = styled.div`
         padding: 10px;
         margin: 10px;
         font-family: Arial,sans-serif;
-        background-color: #333;
         color: white;
         border-radius: 5px;
 
@@ -30,7 +28,7 @@ const ButtonHome = styled.div`
     justify-content: flex-end;
     margin-top:40px ;
     margin-right: 55px;
-    height: 60px;
+    height: 70px;
     font-family: Arial, sans-serif;
 `
 const Login = styled.div`
@@ -109,7 +107,9 @@ function LoginPage() {
   return (
     <GlobalStyles>
       <ButtonHome className="Button">
-        <button onClick={goHomePage}>Home</button>
+        <button onClick={goHomePage}>
+        <img src="https://cdn.icon-icons.com/icons2/1359/PNG/512/astronauthelmet_88899.png" width="40" height="35" alt="capacete astronauta" />
+        </button>
       </ButtonHome>
       <Login>
         <div>

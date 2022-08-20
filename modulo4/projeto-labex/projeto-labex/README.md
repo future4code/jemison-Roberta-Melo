@@ -1,7 +1,7 @@
 # 👨‍🚀 LabeX 
 #### Gerenciamento e candidatura de viagem espacial.
 
-###### https://responsible-muscle.surge.sh/
+###### https://sticky-field.surge.sh/
 ### Tecnologias utilizadas
 
 - React
@@ -11,15 +11,22 @@
 
 #### ✅ O que funciona
  - Requisições API LabeX
+ - Login (Logar como administrador)
+ - List Trips (Inscreva-se)
+ - Application Form (Formulário)
+ - Create Trip (Criar uma viagem)
+ 
  
 #### ❌ O que não funciona
- - 
+ - Não existe a Page Admin Home
+ - Não existe a Page Trip Details  
 
 ### Layout
 ![](img1.png)
 ![](img2.png)
 ![](img3.png)
 ![](img4.png)
+![](img5.png)
 
 ###### E-mail: roberta.vieirademelo@yahoo.com.br
 ###### Senha: 456357
