@@ -1,4 +1,4 @@
-console.log("exercicio 1")
+//console.log("exercicio 1")
 
 const converteCelsius = (temperatura, escala) => {
     if (escala === "F") {
@@ -13,7 +13,6 @@ const converteCelsius = (temperatura, escala) => {
 }
 
 converteCelsius(30, "F")
-converteCelsius("trinta", "F")
 converteCelsius(60, "K")
 converteCelsius(80, "G")
 
