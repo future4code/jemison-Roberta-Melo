@@ -1,6 +1,9 @@
+const operacao = process.argv[2]
 const num1 = Number(process.argv[3])
 const num2 = Number(process.argv[4])
-const operacao = process.argv[2]
+
+
+function valores(operacao, num1, num2){
 
 switch(operacao){
 	case "soma":
@@ -19,3 +22,7 @@ switch(operacao){
 		console.log("Erro, digite a operação correta!")
 		break;	
 }
+}
+console.log(valores(operacao, num1, num2))
+
+
