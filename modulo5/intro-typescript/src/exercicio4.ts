@@ -1,4 +1,4 @@
-const comparaDoisNumeros = (num1: number, num2: number):number => {
+const comparaDoisNumeros = (num1: number, num2: number) => {
     let maiorNumero: number = 0 
     let menorNumero: number = 0
    

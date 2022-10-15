@@ -1,4 +1,4 @@
-const checaRenovacaoRG = (anoAtual: number, anoNascimento: number, anoEmissao: number): string | number | boolean => {
+const checaRenovacaoRG = (anoAtual: number, anoNascimento: number, anoEmissao: number) => {
 
     let idade: number = anoAtual - anoNascimento
     let tempoCarteira = anoAtual - anoEmissao
@@ -16,4 +16,4 @@ const checaRenovacaoRG = (anoAtual: number, anoNascimento: number, anoEmissao: n
     }
 }
 
-console.log(checaRenovacaoRG)
+console.log(checaRenovacaoRG(2022, 1980, 2012))
