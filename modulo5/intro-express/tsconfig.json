@@ -4,7 +4,7 @@
         "module": "commonjs",       /* Specify module code generation */
         "sourceMap": true,          /* Generates corresponding '.map' file. */
         "outDir": "./build",        /* Redirect output structure to the directory. */
-        "rootDir": "./",         /* Specify the root directory of input files. */
+        "rootDir": "./src",         /* Specify the root directory of input files. */
         "removeComments": true,    /* Do not emit comments to output. */
         "strict": true,
         "esModuleInterop": true,
