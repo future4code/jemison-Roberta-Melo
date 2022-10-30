@@ -1,11 +1,8 @@
 import express, {Request, Response} from "express"
-
 import cors from 'cors'
 
 const app = express()
-
 app.use(express.json())
-
 app.use(cors())
 
 app.listen(3003, () => {
@@ -17,14 +14,14 @@ app.get("/ping", (req: Request, res: Response) => {
 })
 
 //2
-type Afazeres = {
+ type ToDo = {
     userId: number,
     id: number,
     title: string,
     completed: boolean
 }
 //3
-let dados: Afazeres[] = [
+let dados: ToDo[] = [
     {
       "userId": 1,
       "id": 1,
@@ -88,23 +85,73 @@ let dados: Afazeres[] = [
 ]
 //4
 app.get("/dados", (req: Request, res: Response) => {
-    const dadosAfazer = dados.filter((afazeres)=>{
-        return afazeres.completed === true
+    const dadosAfazer = dados.filter((ToDo)=>{
+        return ToDo.completed === true
     })
     res.send(dadosAfazer)
 })
 //5
 app.get("/atualizar", (req: Request, res: Response) => {
-    const dadosAfazer = dados.filter((afazer)=>{
-        return afazer.completed === false
+    const dadosLista = dados.filter((lista)=>{
+        return lista.completed === false
     })
-    res.send(dadosAfazer)
+    res.send(dadosLista)
 })
 //6
+app.post("/dados/:editar", (req: Request, res: Response) => {
+    const {userId, id, title, completed} = req.body
+
+    if(dados){
+        dados.push({
+            userId: userId,
+            id: Date.now(),
+            title: title,
+            completed: completed
+        })
+        res.send(dados)
+    }else{
+        res.status(404).send("Não foi possível editar os status!")
+    }
+})
 
 //7
+app.delete("/dados/:dadosId", (req: Request, res: Response) => {
+    const deletarId = req.params.deletarId
 
-//8
-    
-    
+    const dado = dados.find((deletar) => deletar.id === Number(deletarId))
+       if(dado === undefined){
+        res.status(400).send("Dado não encontrado!")
+        return
 
+       }else{
+        dados = dados.filter((dado) =>{
+            return dado.id !== Number(deletarId)
+        })
+        res.send(dados)
+       }
+    })
+
+ //8
+    app.get("/dados/:userId", (req: Request, res: Response) =>{
+        const userId = Number(req.params.userId)
+        const dadosUser = dados.filter((user) =>{
+            return user.userId === userId
+        })
+        const dadosNovos = dados.filter((user) =>{
+            return user.userId !== userId
+        })
+        res.send({
+            todos: [{Usuarios: dadosUser}, {Novos: dadosNovos}]
+        })
+    })
+    app.put("/dados/:dadosId", (req: Request, res: Response) =>{
+        const dadosId = req.params.dadosId
+        const dado = dados.find((dado) => dado.id === Number(dadosId))
+        if(dado){
+            dado.completed = !dado.completed
+            res.send(dado) 
+        }else{
+            res.status(400).send("Dados não encontrado tentar novamente!")
+        }
+    })
+//9 erro no postman, não consegui gerar a url
