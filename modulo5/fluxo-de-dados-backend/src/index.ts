@@ -1,6 +1,7 @@
 import express, { Request, Response} from "express"
 import cors from 'cors'
 import { lista } from "./data"
+//import { Produto } from "./type"
 
 const app = express()
 
@@ -14,43 +15,24 @@ app.listen(3003, () => {
 
 //1
 app.get("/test", (req: Request, res: Response) =>{
-    res.status(201).send("Servidor rodando na porta (3003)!")
+    res.status(200).send("Servidor rodando na porta (3003)!")
 })
 
 //4
-/*app.post("/produtos", (req: Request, res: Response) =>{
-    const {name, price} = req.body
+/*app.post("/lista", (req: Request, res: Response) =>{
+  const nomeProduto = req.body.name
+  const precoProduto = Number(req.body.price)
 
-    try{ 
-        if(!name){
-            const error = new Error("Informe o nome do produto!")
-            error.name = "ProductNotFound"
-            throw error
-        }
-        if(!price){
-            const error = new Error("Informe o preço do produto!")
-            error.name = "ProductNotFound"
-            throw error
-        }
-        if(!name || !price || typeof (price) !== "number" || typeof (name) !== "string" || price <= 0){
-            res.statusCode = 422
-            throw new Error("Verifique se o nome ou preço, estão preenchido corretamente!")
-        }
-        lista.push(
-            {
-                id:Date.now().toString(),
-                name: name,
-                price: price
-        })
-        res.status(201).send(lista)
-    }catch (error: any){
-        res.status(res.statusCode || 500).send({ message: error.message})
-    }
-
-})*/
-
+  const novoProduto: Produto = {
+    id: Date.now().toString(),
+    name: nomeProduto,
+    price: precoProduto
+  }
+  lista.push(novoProduto)
+  res.status(200).send(lista)
+*/
 //5
-app.get("/produtos", (req: Request, res: Response) => {
+app.get("/lista", (req: Request, res: Response) => {
     const produto = req.query.name
 
     if(!produto){
@@ -63,41 +45,165 @@ app.get("/produtos", (req: Request, res: Response) => {
     }
 })
 //6
-//res.status(400).send("Colocar obrigatoriament um id")
-app.put("/produtos/:nomeProduto", (req: Request, res: Response)=>{
-    try{
-        const price = req.body.price
-        const nomeProduto = req.params.nomeProduto
-
-        if(!nomeProduto || !price || typeof (price) !== "number" || price <= 0){
-            res.status(404).send("")
-            throw new Error("Informe o nome do produto")
-        }
-        const novoProduto = produtos.find((produto)=> produto.name === nomeProduto)
-        if(novoProduto){
-            novoProduto.price = price
-            res.send(produtos)
-        }else{
-            res.status(404).send("")
-            throw new Error("Produto não encontrado")
-        }
-    }catch(error: any){
-        res.status(500).send(error.message)
+app.put("/lista", (req: Request, res: Response)=>{
+ const produtoId = req.body.id
+ const novoPreco = req.body.price 
+ 
+ const atualizarProdutos = lista.map(item =>{
+    if(item.id === produtoId){
+        item.price = novoPreco
     }
+    return item
+ })
+ res.status(200).send(atualizarProdutos)
 })
+
+
 //7
-app.delete("/produtos/:nomeProduto", (req: Request, res: Response)=>{
+app.delete("/produto/:nomeProduto", (req: Request, res: Response)=>{
     try{
         const nomeProduto = req.params.nomeProduto
         if(!nomeProduto){
-            res.status(404).send("")
-            throw new Error("Escolha um produto")
+            
+          res.status(404).send("Informe o produto")
+            
         }
-        const listaProduto = produtos.filter((produto)=>{
-            return produto.name !== nomeProduto
+        const listaProdutos = lista.filter((lista)=>{
+            return lista.name !== nomeProduto
         })
-        res.send(listaProduto)
-    }catch (error:any){
-        res.status(500).send(error.message)
+        res.send(listaProdutos)
+    }catch (err:any) {
+        res.status(res.statusCode || 500).send({message: err.message})
     }
 })
+
+//8
+/*
+app.post("/produtos/validacao", (req: Request, res: Response)=>{
+    const nomeProduto = req.body.name
+    const precoProduto = req.body.price
+
+    try{
+        if(!nomeProduto || !precoProduto){
+            const error = new Error("Informe o produto e preço")
+            error.name = "ProdutoNotFound"
+            throw Error
+        }
+        if(typeof (nomeProduto) !== "string") {
+            const error = new Error("Informe o nome novamente.")
+            error.name = "ProdutoNotFound"
+            throw Error
+        }
+        if (typeof (precoProduto) !== "number") {
+            const error = new Error("Informe o preço novamente.")
+            error.name = "ProdutoNotFound"
+            throw Error
+        }
+        if (precoProduto < 1) {
+            const error = new Error("Informe o número maior que 0")
+            error.name = "ProdutoNotFound"
+            throw Error
+        }
+        const novoProduto: Produto = {
+            id: Date.now().toString(),
+            name: nomeProduto,
+            price: precoProduto
+        }
+
+        lista.push(novoProduto)
+
+        res.status(201).send(lista)
+    }catch (error: any) {
+        if (error.name === "ProdutoNotFound") {
+            res.status(400).send(error.message)
+        } else if (error.name = "ProdutoNotFound") {
+            res.status(400).send(error.message)
+        } else if (error.name === "ProdutoNotFound") {
+            res.status(400).send(error.message)
+        } else if (error.name === "ProdutoNotFound") {
+            res.status(400).send(error.message)
+        } else {
+            res.status(500).send(error.message)
+        }
+    }
+})
+*/
+//9
+app.put("/produtos/validacao", (req: Request, res: Response)=>{
+    const idProduto = req.body.id
+    const novoPreco = req.body.price
+
+    try{
+        if(!novoPreco){
+            const error = new Error("Escolha um novo valor")
+            error.name = "ProdutoNotFound"
+            throw Error
+        }
+        if (typeof (novoPreco) !== "number") {
+            const error = new Error("Informe o preço novamente.")
+            error.name = "ProdutoNotFound"
+            throw Error
+        }
+        if (novoPreco < 1) {
+            const error = new Error("Informe o número maior que 0")
+            error.name = "ProdutoNotFound"
+            throw Error
+        }
+        const produto = lista.find(item => item.id === idProduto)
+        if (!produto) {
+            const error = new Error("Informe o produto correto")
+            error.name = "ProdutoNotFound"
+            throw Error
+        }
+        const atualizarProdutos = lista.map(item => {
+            if (item.id === idProduto) {
+                item.price = novoPreco
+            }
+            return item
+        })
+        res.status(200).send(atualizarProdutos)
+    }catch (error: any) {
+        if (error.name === "ProdutoNotFound") {
+            res.status(400).send(error.message)
+        } else if (error.name === "ProdutoNotFound") {
+            res.status(400).send(error.message)
+        } else if (error.name === "ProdutoNotFound") {
+            res.status(400).send(error.message)
+        } else if (error.name === "ProdutoNotFound") {
+            res.status(400).send(error.message)
+        } else {
+            res.status(500).send(error.message)
+        }
+    }
+})
+//10
+/*
+app.delete("/produtos/:id/validacao", (req: Request, res: Response)=> {
+    const idProduto = req.params.id
+
+    try{
+        if(!idProduto){
+            const error = new Error("id inválido")
+            error.name = "ProdutoNotFound"
+            throw Error
+        }
+        const produto = lista.find(item => item.id === idProduto)
+        if (!produto) {
+            const error = new Error("Informe o id corretamente.")
+            error.name = "ProdutoNotFound"
+            throw Error
+        }
+        const atualizarProdutos = lista.filter(item => item.id !== idProduto)
+
+        res.status(200).send(atualizarProdutos)
+    }catch (error: any) {
+        if (error.name === "ProdutoNotFound") {
+            res.status(400).send(error.message)
+        } else if (error.name === "ProdutoNotFound") {
+            res.status(400).send(error.message)
+        } else {
+            res.status(500).send(error.message)
+        }
+    }
+})
+*/

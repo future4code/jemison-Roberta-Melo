@@ -1,7 +1,7 @@
 //2
-import { Produtos } from "./type"
+import { Produto } from "./type"
 
-export const lista: Produtos[] = [
+export const lista: Produto[] = [
     { 
         id: 1, 
         name: "Arroz",
