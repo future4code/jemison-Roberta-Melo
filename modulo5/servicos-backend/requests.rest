@@ -1,0 +1,7 @@
+POST http://localhost:3003/address
+Content-Type: application/json
+
+{
+    "cep":"09430520",
+    "numero":"337"
+}
