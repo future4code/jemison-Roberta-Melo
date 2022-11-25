@@ -1,7 +1,7 @@
-POST http://localhost:3003/address
+POST http://localhost:3003/users/create
 Content-Type: application/json
 
 {
-    "cep":"09430520",
-    "numero":"337"
+    "zipcode":"09430520",
+    "number":"337"
 }
