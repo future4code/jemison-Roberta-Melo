@@ -19,7 +19,6 @@ const createTables = () => connection
    .then(() => { console.log("Tabelas criadas") })
    .catch(printError)
 
-
 const closeConnection = () => { connection.destroy() }
 
 createTables()

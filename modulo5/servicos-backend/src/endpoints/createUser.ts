@@ -27,7 +27,7 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
             estado: address.estado
         }
 
-        await connection("servicos_backend")
+        await connection("ex_servicos_backend")
         .insert(newUser)
 
         const send = await transporter.sendMail({
@@ -36,9 +36,6 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
             subject: "",
             text: ""
         })
-
-       
-
         console.log(send)
 
         res.status(201).send("Usuário criado com sucesso!")
