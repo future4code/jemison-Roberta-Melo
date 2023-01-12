@@ -2,18 +2,16 @@ import { Request, Response } from "express";
 import connection from "../database/connections";
 import { TProduct } from "../models/Products";
 
-export const createOrder =async (req: Request, res: Response) => {
+export const createOrder = async (req: Request, res: Response) => {
     let errorCode = 400;
-    
-    
     try{
         //dados do request
-        const delivery_date= req.body.delivery_date;
+        const delivery_date=req.body.delivery_date;
         const fk_client=req.body.fk_client;
         const products:TProduct[]=req.body.products;
         
         
-        if (!delivery_date|| !products|| !fk_client){
+        if (!delivery_date || !products || !fk_client){
             throw new Error("Body invalido!")
         }
 
@@ -21,7 +19,7 @@ export const createOrder =async (req: Request, res: Response) => {
      //get stock
 
         const idsProducts=products.map((product)=>product.id);
-        const stockProducts= await connection.select('qty_stock').from('Case_Products')
+        const stockProducts = await connection.select('qty_stock').from('Case_Products')
         .whereIn('id',idsProducts)
 
         for (let i=0; i<products.length; i++){
@@ -33,7 +31,7 @@ export const createOrder =async (req: Request, res: Response) => {
         //fazer pedido atualizar estoque
         await products.forEach(async product => {
             //adicionba registro
-            await  connection("Case_Orders").insert(
+            await connection("Case_Orders").insert(
                 {
                     order_date:new Date().toISOString().slice(0,10),
                     delivery_date,

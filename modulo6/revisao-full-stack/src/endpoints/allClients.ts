@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import connection from "../database/connections";
-export const getAllClients =async (req: Request, res: Response) => {
+export const getAllClients = async (req: Request, res: Response) => {
     let errorCode = 400;
     try{
         const clients = await connection.select('*').from('Case_Clients');
