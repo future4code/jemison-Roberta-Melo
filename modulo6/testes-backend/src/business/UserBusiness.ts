@@ -6,7 +6,7 @@ import { UserRepository } from "../model/UserRepository";
 export class UserBusiness {
   constructor(private userDatabase: UserRepository) {}
 
-  getUserById = async (id: string): Promise<userById> => {
+  public async getUserById(id: string): Promise<userById> {
     try {
       if (id === ":id") {
         throw new MissingUserId();

@@ -4,7 +4,7 @@ import { UserBusiness } from "../business/UserBusiness";
 export class UserController {
   constructor(private userBusiness: UserBusiness) {}
 
-  getUserById = async (req: Request, res: Response): Promise<void> => {
+  public async getUserById(req: Request, res: Response): Promise<void> {
     try {
       const id = req.params.id;
       const result = await this.userBusiness.getUserById(id);
@@ -14,5 +14,5 @@ export class UserController {
         .status(error.statusCode || 400)
         .send(error.message || error.sqlMessage);
     }
-  };
+  }
 }
