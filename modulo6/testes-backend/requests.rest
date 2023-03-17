@@ -1,0 +1,10 @@
+
+GET http://localhost:3003/users/profile/:id
+Content-Type: application/json
+
+{
+    "id": "",
+    "name": "Astrodev",
+    "email": "astrodev@gmail.com",
+    "role": "ADMIN"
+}
