@@ -1,0 +1,23 @@
+{
+  "name": "resolvendo-problemas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "exercicio01": "tsc && node ./build/exercicio01.js",
+    "exercicio02": "tsc && node ./build/exercicio02.js",
+
+
+
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.15.5",
+    "typescript": "^5.0.2"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0"
+  }
+}
